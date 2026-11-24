@@ -1,90 +1,90 @@
-// src/pages/Work.jsx
+
 import PageBanner from "../components/PageBanner";
 
 const portfolioItems = [
   {
-    title: "Luxe Brew Roasters",
+    title: "Kova Coffee Branding",
     category: "Logo Design & Packaging",
     image:
-      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=900&q=80",
     description:
-      "Crafted a minimalist geometric emblem and custom coffee bag packaging system that helped Luxe Brew stand out on retail shelves and Instagram.",
+      "A premium coffee branding concept featuring minimalist logo inspiration, distinctive packaging aesthetics, and a cohesive visual identity for specialty coffee products.",
   },
   {
-    title: "Urban Fit Athletics",
-    category: "Social Media Campaign",
+    title: "Pulse Fitness Campaign",
+    category: "Social Media Marketing",
     image:
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80",
     description:
-      "Built a 90-day Instagram & TikTok launch strategy with daily workout reels, influencer hooks, and paid lead ads—generating 420+ new gym memberships.",
+      "A fitness marketing campaign concept combining engaging Instagram content, workout reels, promotional graphics, and audience-focused social media advertising.",
   },
   {
-    title: "Nordic Architecture Studio",
-    category: "Brand Identity & Wordmark",
+    title: "Atelier Luxury Living",
+    category: "Brand Identity & Logo Design",
     image:
-      "https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80",
     description:
-      "Designed a clean typographic wordmark, monochrome color palette, and social portfolio grid tailored for high-end residential architecture clients.",
+      "A sophisticated visual identity concept for a luxury interior design brand, combining elegant typography, a refined color palette, and premium brand positioning.",
   },
   {
-    title: "Glow Pure Skincare",
-    category: "Paid Social Ads & Reels",
+    title: "Verve Headphones Campaign",
+    category: "Product Marketing & Social Ads",
     image:
-      "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1505751171710-1f6d0ace5a85?auto=format&fit=crop&w=900&q=80",
     description:
-      "Produced high-converting carousel ads and UGC-style product reels for Meta Ads, achieving a 3.8x return on ad spend during their summer launch.",
+      "A product-focused advertising concept featuring premium headphone photography, engaging promotional content, Instagram creatives, and Meta advertising ideas.",
   },
   {
-    title: "Apex Tech Solutions",
-    category: "Logo Rebrand",
+    title: "Apex Digital Identity",
+    category: "Tech Branding & Logo Design",
     image:
-      "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80",
     description:
-      "Modernized a 15-year-old B2B tech logo into a sharp, app-icon friendly brand mark alongside LinkedIn banner templates and pitch deck styling.",
+      "A modern technology branding concept featuring clean logo direction, digital-first visual styling, professional LinkedIn graphics, and consistent brand communication.",
   },
   {
-    title: "Saffron Kitchen",
-    category: "Social Content & Branding",
+    title: "Chroma Creative Campaign",
+    category: "Creative Branding & Social Media",
     image:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=900&q=80",
     description:
-      "Created a warm, appetizing visual identity, menu icons, and weekly foodie reel series that doubled weekend table reservations in 6 weeks.",
+      "A vibrant creative campaign concept built around energetic colors, bold visual storytelling, eye-catching social media graphics, and engaging promotional content.",
   },
   {
-    title: "Veloce Cycling Club",
-    category: "Logo & Merch Identity",
+    title: "Lumen Workspace Branding",
+    category: "Corporate Branding & Identity",
     image:
-      "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
     description:
-      "Developed a bold crest logo, jersey graphics, and Strava/Instagram community templates for an urban cycling brand.",
+      "A contemporary workspace branding concept featuring minimalist identity design, sophisticated corporate visuals, branded stationery ideas, and professional social content.",
   },
   {
-    title: "Elevate Real Estate Group",
-    category: "Social Media Management",
+    title: "MetricFlow Digital Marketing",
+    category: "B2B Marketing & Social Media",
     image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
     description:
-      "Designed cohesive property tour templates, market update carousels, and personal branding graphics for a 12-agent brokerage.",
+      "A data-driven B2B marketing concept featuring analytical dashboards, LinkedIn campaign ideas, engaging business graphics, and performance-focused advertising creatives.",
   },
   {
-    title: "SoundWave Audio",
-    category: "Logo Design & Launch Kit",
+    title: "Studio Forma Creative",
+    category: "Logo Design & Brand Development",
     image:
-      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=700&q=80",
+      "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=900&q=80",
     description:
-      "Crafted a dynamic waveform monogram and dark-mode social media launch kit for an independent podcast and audio studio.",
+      "A creative studio identity concept featuring logo development, artistic brand direction, coordinated visual elements, and a consistent social media design system.",
   },
 ];
 
 export default function Work() {
   return (
     <div>
-      {/* Banner */}
+      {/* Clean Header */}
       <PageBanner>
         <h1 className="text-3xl sm:text-4xl font-bold text-[#111111]">
           Our <span className="text-[#d91b5c]">Work</span>
         </h1>
-        <p className="text-xs sm:text-sm text-gray-700 mt-2">
+        <p className="text-xs sm:text-sm text-gray-600 mt-2">
           Selected Logo Designs, Brand Identities &amp; Social Media Campaigns.
         </p>
       </PageBanner>
@@ -95,16 +95,16 @@ export default function Work() {
           {portfolioItems.map((item) => (
             <div
               key={item.title}
-              className="border border-gray-200 bg-white flex flex-col"
+              className="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden flex flex-col"
             >
               <div className="aspect-[16/10] bg-gray-100 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-5 flex-1 flex flex-col">
+              <div className="p-6 flex-1 flex flex-col">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-[#d91b5c]">
                   {item.category}
                 </span>

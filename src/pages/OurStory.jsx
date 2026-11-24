@@ -25,12 +25,12 @@ const values = [
 export default function OurStory() {
   return (
     <div>
-      {/* Banner */}
+      {/* Clean Header */}
       <PageBanner>
         <h1 className="text-3xl sm:text-4xl font-bold text-[#111111]">
           Our <span className="text-[#d91b5c]">Story</span>
         </h1>
-        <p className="text-xs sm:text-sm text-gray-700 mt-2">
+        <p className="text-xs sm:text-sm text-gray-600 mt-2">
           Who we are, what drives us, and why brands trust us with their
           identity and growth.
         </p>
@@ -66,8 +66,8 @@ export default function OurStory() {
 
           <div className="bg-gray-100 border border-gray-200 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
-              alt="Single Source Creative Team Working"
+              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80"
+              alt="Single Source Creative Studio Workshop"
               className="w-full h-80 object-cover"
             />
           </div>
@@ -76,7 +76,7 @@ export default function OurStory() {
         {/* Pink Divider */}
         <hr className="border-t border-[#d91b5c]" />
 
-        {/* Our Core Values */}
+        {/* Core Values */}
         <div>
           <h2 className="text-2xl font-bold text-[#111111] text-center mb-10">
             What We Stand For
