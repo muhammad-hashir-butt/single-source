@@ -4,10 +4,9 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
-import Team from "./pages/Team";
 import Work from "./pages/Work";
-import Promotion from "./pages/Promotion";
-import YourStory from "./pages/YourStory";
+import Services from "./pages/Services";
+import OurStory from "./pages/OurStory";
 import Clients from "./pages/Clients";
 import Contact from "./pages/Contact";
 
@@ -28,10 +27,9 @@ export default function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/team" element={<Team />} />
             <Route path="/work" element={<Work />} />
-            <Route path="/promotion" element={<Promotion />} />
-            <Route path="/your-story" element={<YourStory />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/our-story" element={<OurStory />} />
             <Route path="/clients" element={<Clients />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

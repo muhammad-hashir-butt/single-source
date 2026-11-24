@@ -5,10 +5,9 @@ import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Team", path: "/team" },
   { name: "Work", path: "/work" },
-  { name: "Promotion", path: "/promotion" },
-  { name: "Your Story", path: "/your-story" },
+  { name: "Services", path: "/services" },
+  { name: "Our Story", path: "/our-story" },
   { name: "Clients", path: "/clients" },
   { name: "Contact", path: "/contact" },
 ];
@@ -18,27 +17,27 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Blue Bar (Patti) */}
-      <div className="w-full bg-[#00529b] text-white py-2.5 px-4 sm:px-6">
+      {/* Top Black Bar */}
+      <div className="w-full bg-[#111111] text-white py-2.5 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex justify-end items-center text-[11px] sm:text-xs tracking-wide">
           <span>
             Call Today!{" "}
-            <a href="tel:4165607221" className="hover:underline">
+            <a href="tel:4165607221" className="hover:text-[#d91b5c]">
               416 560 7221
             </a>
           </span>
-          <span className="mx-2 text-white/70">|</span>
+          <span className="mx-2 text-white/40">|</span>
           <a
-            href="mailto:Terry@singlesource.media"
-            className="hover:underline"
+            href="mailto:hello@singlesource.media"
+            className="hover:text-[#d91b5c]"
           >
-            Terry@singlesource.media
+            hello@singlesource.media
           </a>
         </div>
       </div>
 
       {/* Main White Navbar */}
-      <header className="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
+      <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
@@ -75,14 +74,14 @@ export default function Navbar() {
             </svg>
 
             <div className="leading-tight">
-              <div className="text-[15px] sm:text-[17px] font-bold tracking-wide text-[#222222]">
+              <div className="text-[15px] sm:text-[17px] font-bold tracking-wide text-[#111111]">
                 SINGLE SOURCE
               </div>
-              <div className="text-[15px] sm:text-[17px] font-bold tracking-wide text-[#222222] -mt-1">
+              <div className="text-[15px] sm:text-[17px] font-bold tracking-wide text-[#111111] -mt-1">
                 MARKETING
               </div>
-              <div className="text-[10px] text-gray-400 tracking-wide mt-0.5">
-                media • web • video • mobile • print
+              <div className="text-[10px] text-gray-500 tracking-wide mt-0.5">
+                social media marketing • logo design • branding
               </div>
             </div>
           </Link>
@@ -94,10 +93,10 @@ export default function Navbar() {
                 key={item.path}
                 to={item.path}
                 className={({ isActive }) =>
-                  `text-[13px] font-medium transition-colors duration-200 ${
+                  `text-[13px] font-medium ${
                     isActive
                       ? "text-[#d91b5c]"
-                      : "text-[#222222] hover:text-[#d91b5c]"
+                      : "text-[#111111] hover:text-[#d91b5c]"
                   }`
                 }
               >
@@ -109,7 +108,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2 text-gray-700 hover:text-[#d91b5c]"
+            className="md:hidden p-2 text-gray-800 hover:text-[#d91b5c]"
             aria-label="Toggle menu"
           >
             {open ? <X size={24} /> : <Menu size={24} />}
@@ -126,7 +125,7 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `text-sm font-medium py-1 ${
-                    isActive ? "text-[#d91b5c]" : "text-[#222222]"
+                    isActive ? "text-[#d91b5c]" : "text-[#111111]"
                   }`
                 }
               >
