@@ -1,0 +1,10 @@
+/* src/index.css */
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Montserrat', 'Inter', system-ui, -apple-system, sans-serif;
+    color: #222222;
+    background-color: #ffffff;
+  }
+}
