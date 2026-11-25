@@ -1,5 +1,5 @@
 // src/pages/Clients.jsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Check } from "lucide-react";
 import PageBanner from "../components/PageBanner";
@@ -214,12 +214,56 @@ const clientsList = [
   },
 ];
 
+function ClientCard({ client }) {
+  return (
+    <div className="w-[310px] sm:w-[350px] shrink-0 border border-gray-200 rounded-xl bg-white shadow-sm p-6 flex flex-col justify-between">
+      <div>
+        <div className="h-20 bg-[#fafafa] border border-gray-100 rounded-lg flex items-center justify-center px-4 mb-5">
+          <span className={`text-lg font-bold ${client.accent}`}>
+            {client.name}
+          </span>
+        </div>
+
+        <span className="text-[10px] font-bold uppercase tracking-widest text-[#d91b5c]">
+          {client.industry}
+        </span>
+        <p className="text-xs text-gray-600 leading-relaxed mt-2 mb-5">
+          {client.summary}
+        </p>
+      </div>
+
+      <div className="border-t border-gray-100 pt-4">
+        <h3 className="text-[11px] font-bold uppercase tracking-wider text-[#111111] mb-2.5">
+          Tasks Delivered
+        </h3>
+        <ul className="space-y-1.5">
+          {client.tasks.map((task, i) => (
+            <li
+              key={i}
+              className="flex items-start gap-2 text-xs text-gray-700"
+            >
+              <Check size={13} className="text-[#d91b5c] shrink-0 mt-0.5" />
+              <span>{task}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
 export default function Clients() {
   const [slideIndex, setSlideIndex] = useState(0);
-  const [rosterPage, setRosterPage] = useState(0);
 
-  const cardsPerSlide = 3;
-  const totalRosterPages = Math.ceil(clientsList.length / cardsPerSlide);
+  // Auto-move Spotlight Slider every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSlideIndex((prev) =>
+        prev === spotlightSlides.length - 1 ? 0 : prev + 1
+      );
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   const prevSlide = () =>
     setSlideIndex((prev) =>
@@ -230,20 +274,28 @@ export default function Clients() {
       prev === spotlightSlides.length - 1 ? 0 : prev + 1
     );
 
-  const prevRoster = () =>
-    setRosterPage((prev) => (prev === 0 ? totalRosterPages - 1 : prev - 1));
-  const nextRoster = () =>
-    setRosterPage((prev) => (prev === totalRosterPages - 1 ? 0 : prev + 1));
-
-  const visibleClients = clientsList.slice(
-    rosterPage * cardsPerSlide,
-    rosterPage * cardsPerSlide + cardsPerSlide
-  );
-
   const activeSlide = spotlightSlides[slideIndex];
 
   return (
     <div>
+      {/* Smooth Continuous Moving Slider Keyframes */}
+      <style>{`
+        @keyframes clientMarquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .client-marquee-track {
+          animation: clientMarquee 45s linear infinite;
+        }
+        .client-marquee-wrapper:hover .client-marquee-track {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       {/* Clean Header */}
       <PageBanner>
         <h1 className="text-3xl sm:text-4xl font-bold text-[#111111]">
@@ -295,7 +347,7 @@ export default function Clients() {
           </div>
         </section>
 
-        {/* Section 2: Interactive Client Spotlight Slider */}
+        {/* Section 2: Auto-Moving Client Spotlight Slider */}
         <section>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
             <div>
@@ -393,108 +445,42 @@ export default function Clients() {
             </div>
           </div>
         </section>
+      </div>
 
-        {/* Section 3: 12 Clients Cards Slider (3 Cards Per Slide) */}
-        <section>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-[#d91b5c]">
-                Client Roster &amp; Deliverables
-              </p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] mt-1">
-                Brands We&apos;ve Worked With &amp; Tasks Performed
-              </h2>
+      {/* Section 3: Full-Width Continuous Moving Client Cards Slider */}
+      <section className="py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-8">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#d91b5c]">
+            Client Roster &amp; Deliverables
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] mt-1">
+            Brands We&apos;ve Worked With &amp; Tasks Performed
+          </h2>
+          <p className="text-xs text-gray-500 mt-1">
+            Hover over any card to pause and read details.
+          </p>
+        </div>
+
+        <div className="client-marquee-wrapper w-full overflow-hidden py-2">
+          <div className="client-marquee-track flex w-max">
+            {/* First Copy */}
+            <div className="flex gap-7 pr-7 shrink-0">
+              {clientsList.map((client) => (
+                <ClientCard key={`a-${client.name}`} client={client} />
+              ))}
             </div>
-
-            {/* Roster Slider Arrows */}
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-semibold text-gray-500">
-                Slide {rosterPage + 1} / {totalRosterPages}
-              </span>
-              <button
-                type="button"
-                onClick={prevRoster}
-                aria-label="Previous clients slide"
-                className="bg-[#111111] hover:bg-[#d91b5c] text-white p-2 rounded cursor-pointer"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button
-                type="button"
-                onClick={nextRoster}
-                aria-label="Next clients slide"
-                className="bg-[#111111] hover:bg-[#d91b5c] text-white p-2 rounded cursor-pointer"
-              >
-                <ChevronRight size={18} />
-              </button>
+            {/* Duplicate Copy for Seamless Infinite Loop */}
+            <div className="flex gap-7 pr-7 shrink-0" aria-hidden="true">
+              {clientsList.map((client) => (
+                <ClientCard key={`b-${client.name}`} client={client} />
+              ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* 3-Card Slider Viewport */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
-            {visibleClients.map((client) => (
-              <div
-                key={client.name}
-                className="border border-gray-200 rounded-xl bg-white shadow-sm p-6 flex flex-col justify-between"
-              >
-                <div>
-                  {/* Brand Logo Box */}
-                  <div className="h-20 bg-[#fafafa] border border-gray-100 rounded-lg flex items-center justify-center px-4 mb-5">
-                    <span className={`text-lg font-bold ${client.accent}`}>
-                      {client.name}
-                    </span>
-                  </div>
-
-                  {/* Industry & Summary */}
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#d91b5c]">
-                    {client.industry}
-                  </span>
-                  <p className="text-xs text-gray-600 leading-relaxed mt-2 mb-5">
-                    {client.summary}
-                  </p>
-                </div>
-
-                {/* Tasks Done */}
-                <div className="border-t border-gray-100 pt-4">
-                  <h3 className="text-[11px] font-bold uppercase tracking-wider text-[#111111] mb-2.5">
-                    Tasks Delivered
-                  </h3>
-                  <ul className="space-y-1.5">
-                    {client.tasks.map((task, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start gap-2 text-xs text-gray-700"
-                      >
-                        <Check
-                          size={13}
-                          className="text-[#d91b5c] shrink-0 mt-0.5"
-                        />
-                        <span>{task}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Roster Slider Dots */}
-          <div className="flex items-center justify-center gap-2 mt-7">
-            {Array.from({ length: totalRosterPages }).map((_, idx) => (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => setRosterPage(idx)}
-                aria-label={`Clients page ${idx + 1}`}
-                className={`h-2 rounded-full cursor-pointer ${
-                  rosterPage === idx ? "w-6 bg-[#d91b5c]" : "w-2 bg-gray-300"
-                }`}
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* Bottom CTA */}
+      {/* Bottom CTA */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
         <section className="bg-[#111111] text-white rounded-xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="text-xl sm:text-2xl font-bold">
