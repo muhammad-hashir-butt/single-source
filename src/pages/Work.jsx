@@ -11,12 +11,12 @@ const portfolioItems = [
       "A premium coffee branding concept featuring minimalist logo inspiration, distinctive packaging aesthetics, and a cohesive visual identity for specialty coffee products.",
   },
   {
-    title: "Pulse Fitness Campaign",
+    title: "Nova Social — Instagram Campaign",
     category: "Social Media Marketing",
     image:
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1726066012749-f81bf4422d4e?auto=format&fit=crop&w=900&q=80",
     description:
-      "A fitness marketing campaign concept combining engaging Instagram content, workout reels, promotional graphics, and audience-focused social media advertising.",
+      "A modern Instagram marketing campaign concept featuring engaging social media content, visually consistent post designs, creative storytelling, and audience-focused digital marketing strategies.",
   },
   {
     title: "Atelier Luxury Living",

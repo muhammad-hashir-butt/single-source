@@ -69,10 +69,10 @@ const featuredWork = [
       "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80",
   },
   {
-    title: "Pulse Studio Athletics — Social Launch",
+    title: "Nova Social — Instagram Campaign",
     category: "Social Media Marketing",
     image:
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1726066012749-f81bf4422d4e?auto=format&fit=crop&w=800&q=80",
   },
   {
     title: "Atelier Architecture — Brand Identity",
@@ -93,11 +93,13 @@ export default function Home() {
 
   const prevSlide = () =>
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+
   const nextSlide = () =>
     setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10 space-y-16">
+
       {/* 6-Slide Hero Slider */}
       <div className="relative border border-gray-300 bg-black overflow-hidden rounded-lg">
         <div className="relative h-72 sm:h-96 md:h-[460px]">
@@ -106,6 +108,7 @@ export default function Home() {
             alt={slides[current].headline}
             className="w-full h-full object-cover opacity-80"
           />
+
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
           <div className="absolute bottom-0 inset-x-0 p-6 sm:p-10 pb-12 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -113,9 +116,11 @@ export default function Home() {
               <span className="inline-block bg-[#d91b5c] text-white text-[10px] font-bold tracking-widest px-2.5 py-1 mb-3">
                 {slides[current].tag}
               </span>
+
               <h1 className="text-2xl sm:text-4xl font-bold text-white leading-tight">
                 {slides[current].headline}
               </h1>
+
               <p className="text-xs sm:text-sm text-gray-200 mt-2">
                 {slides[current].subtext}
               </p>
@@ -137,6 +142,7 @@ export default function Home() {
         >
           <ChevronLeft size={20} />
         </button>
+
         <button
           onClick={nextSlide}
           aria-label="Next slide"
@@ -153,24 +159,28 @@ export default function Home() {
               onClick={() => setCurrent(index)}
               aria-label={`Slide ${index + 1}`}
               className={`h-2 rounded-full cursor-pointer ${
-                current === index ? "w-6 bg-[#d91b5c]" : "w-2 bg-white/60"
+                current === index
+                  ? "w-6 bg-[#d91b5c]"
+                  : "w-2 bg-white/60"
               }`}
             />
           ))}
         </div>
       </div>
 
-      {/* 15 Black Category Cards (3-Column Grid = 5 Clean Rows) */}
+      {/* 15 Black Category Cards */}
       <section>
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-2">
           <div>
             <p className="text-xs font-bold uppercase tracking-widest text-[#d91b5c]">
               15 Specialized Solutions
             </p>
+
             <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] mt-1">
               Social Media Marketing &amp; Logo Design Services
             </h2>
           </div>
+
           <Link
             to="/services"
             className="text-xs font-semibold text-[#111111] hover:text-[#d91b5c]"
@@ -182,6 +192,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesData.map((item) => {
             const Icon = item.icon;
+
             return (
               <div
                 key={item.id}
@@ -192,10 +203,12 @@ export default function Home() {
                     <div className="w-9 h-9 rounded-full bg-[#d91b5c] flex items-center justify-center shrink-0">
                       <Icon size={16} className="text-white" />
                     </div>
+
                     <h3 className="text-base font-semibold leading-snug">
                       {item.title}
                     </h3>
                   </div>
+
                   <p className="text-xs leading-relaxed text-gray-300">
                     {item.short}
                   </p>
@@ -216,20 +229,39 @@ export default function Home() {
       {/* Agency Stats Strip */}
       <section className="bg-[#f5f5f5] border border-gray-200 rounded-lg p-8 sm:p-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         <div>
-          <p className="text-3xl font-bold text-[#111111]">2000+</p>
-          <p className="text-xs text-gray-600 mt-1">Custom Logos Designed</p>
+          <p className="text-3xl font-bold text-[#111111]">
+            2000+
+          </p>
+          <p className="text-xs text-gray-600 mt-1">
+            Custom Logos Designed
+          </p>
         </div>
+
         <div>
-          <p className="text-3xl font-bold text-[#d91b5c]">1500+</p>
-          <p className="text-xs text-gray-600 mt-1">Social Brands Managed</p>
+          <p className="text-3xl font-bold text-[#d91b5c]">
+            1500+
+          </p>
+          <p className="text-xs text-gray-600 mt-1">
+            Social Brands Managed
+          </p>
         </div>
+
         <div>
-          <p className="text-3xl font-bold text-[#111111]">3.5x</p>
-          <p className="text-xs text-gray-600 mt-1">Avg. Engagement Boost</p>
+          <p className="text-3xl font-bold text-[#111111]">
+            3.5x
+          </p>
+          <p className="text-xs text-gray-600 mt-1">
+            Avg. Engagement Boost
+          </p>
         </div>
+
         <div>
-          <p className="text-3xl font-bold text-[#d91b5c]">100%</p>
-          <p className="text-xs text-gray-600 mt-1">Original Creative Work</p>
+          <p className="text-3xl font-bold text-[#d91b5c]">
+            100%
+          </p>
+          <p className="text-xs text-gray-600 mt-1">
+            Original Creative Work
+          </p>
         </div>
       </section>
 
@@ -240,10 +272,12 @@ export default function Home() {
             <p className="text-xs font-bold uppercase tracking-widest text-[#d91b5c]">
               Recent Projects
             </p>
+
             <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] mt-1">
               Featured Branding &amp; Social Work
             </h2>
           </div>
+
           <Link
             to="/work"
             className="text-xs font-semibold text-[#111111] hover:text-[#d91b5c]"
@@ -254,7 +288,11 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {featuredWork.map((work) => (
-            <Link key={work.title} to="/work" className="group block">
+            <Link
+              key={work.title}
+              to="/work"
+              className="group block"
+            >
               <div className="aspect-[16/11] bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
                 <img
                   src={work.image}
@@ -262,9 +300,11 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
+
               <p className="text-[10px] font-bold uppercase tracking-wider text-[#d91b5c] mt-2.5">
                 {work.category}
               </p>
+
               <h3 className="text-xs font-bold text-[#111111] mt-0.5 leading-snug group-hover:text-[#d91b5c]">
                 {work.title}
               </h3>
@@ -279,11 +319,13 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl font-bold">
             Ready to Upgrade Your Logo &amp; Social Media?
           </h2>
+
           <p className="text-xs sm:text-sm text-gray-300 mt-2">
             Let&apos;s build a recognizable brand and a social presence that
             brings consistent clients.
           </p>
         </div>
+
         <Link
           to="/contact"
           className="bg-[#d91b5c] hover:bg-white hover:text-[#111111] text-white text-xs font-bold px-7 py-3.5 rounded shrink-0"

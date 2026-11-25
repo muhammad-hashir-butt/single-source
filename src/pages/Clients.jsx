@@ -216,6 +216,10 @@ const clientsList = [
 
 export default function Clients() {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [rosterPage, setRosterPage] = useState(0);
+
+  const cardsPerSlide = 3;
+  const totalRosterPages = Math.ceil(clientsList.length / cardsPerSlide);
 
   const prevSlide = () =>
     setSlideIndex((prev) =>
@@ -225,6 +229,16 @@ export default function Clients() {
     setSlideIndex((prev) =>
       prev === spotlightSlides.length - 1 ? 0 : prev + 1
     );
+
+  const prevRoster = () =>
+    setRosterPage((prev) => (prev === 0 ? totalRosterPages - 1 : prev - 1));
+  const nextRoster = () =>
+    setRosterPage((prev) => (prev === totalRosterPages - 1 ? 0 : prev + 1));
+
+  const visibleClients = clientsList.slice(
+    rosterPage * cardsPerSlide,
+    rosterPage * cardsPerSlide + cardsPerSlide
+  );
 
   const activeSlide = spotlightSlides[slideIndex];
 
@@ -293,7 +307,6 @@ export default function Clients() {
               </h2>
             </div>
 
-            {/* Slider Controls */}
             <div className="flex items-center gap-2">
               <button
                 type="button"
@@ -314,10 +327,8 @@ export default function Clients() {
             </div>
           </div>
 
-          {/* Slider Card */}
           <div className="border border-gray-200 rounded-xl bg-white shadow-sm p-6 sm:p-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              {/* Left Story */}
               <div className="lg:col-span-7 space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="bg-[#111111] text-white text-xs font-bold px-3 py-1 rounded">
@@ -346,7 +357,6 @@ export default function Clients() {
                 </div>
               </div>
 
-              {/* Right Tasks Completed */}
               <div className="lg:col-span-5 bg-[#fafafa] border border-gray-200 rounded-lg p-6">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-4">
                   Tasks Completed For {activeSlide.client}
@@ -368,7 +378,6 @@ export default function Clients() {
               </div>
             </div>
 
-            {/* Dots */}
             <div className="flex items-center justify-center gap-2 mt-8 pt-4 border-t border-gray-100">
               {spotlightSlides.map((slide, idx) => (
                 <button
@@ -385,19 +394,45 @@ export default function Clients() {
           </div>
         </section>
 
-        {/* Section 3: Complete Client List & What Work We Did */}
+        {/* Section 3: 12 Clients Cards Slider (3 Cards Per Slide) */}
         <section>
-          <div className="mb-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#d91b5c]">
-              Client Roster &amp; Deliverables
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] mt-1">
-              Brands We&apos;ve Worked With &amp; Tasks Performed
-            </h2>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-3">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#d91b5c]">
+                Client Roster &amp; Deliverables
+              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#111111] mt-1">
+                Brands We&apos;ve Worked With &amp; Tasks Performed
+              </h2>
+            </div>
+
+            {/* Roster Slider Arrows */}
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-semibold text-gray-500">
+                Slide {rosterPage + 1} / {totalRosterPages}
+              </span>
+              <button
+                type="button"
+                onClick={prevRoster}
+                aria-label="Previous clients slide"
+                className="bg-[#111111] hover:bg-[#d91b5c] text-white p-2 rounded cursor-pointer"
+              >
+                <ChevronLeft size={18} />
+              </button>
+              <button
+                type="button"
+                onClick={nextRoster}
+                aria-label="Next clients slide"
+                className="bg-[#111111] hover:bg-[#d91b5c] text-white p-2 rounded cursor-pointer"
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-            {clientsList.map((client) => (
+          {/* 3-Card Slider Viewport */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
+            {visibleClients.map((client) => (
               <div
                 key={client.name}
                 className="border border-gray-200 rounded-xl bg-white shadow-sm p-6 flex flex-col justify-between"
@@ -440,6 +475,21 @@ export default function Clients() {
                   </ul>
                 </div>
               </div>
+            ))}
+          </div>
+
+          {/* Roster Slider Dots */}
+          <div className="flex items-center justify-center gap-2 mt-7">
+            {Array.from({ length: totalRosterPages }).map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setRosterPage(idx)}
+                aria-label={`Clients page ${idx + 1}`}
+                className={`h-2 rounded-full cursor-pointer ${
+                  rosterPage === idx ? "w-6 bg-[#d91b5c]" : "w-2 bg-gray-300"
+                }`}
+              />
             ))}
           </div>
         </section>
