@@ -108,7 +108,7 @@ export const servicesData = [
     title: "Packaging & Label Design",
     icon: Package,
     image:
-      "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1617825295690-28ae56c56135?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     short:
       "Shelf-ready product boxes, pouches, and labels built to stand out in stores and unboxings.",
     overview:
@@ -150,7 +150,7 @@ export const servicesData = [
     title: "Full Social Media Management",
     icon: Grid,
     image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=80",
+      "https://plus.unsplash.com/premium_photo-1683977922495-3ab3ce7ba4e6?q=80&w=1100&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     short:
       "Done-for-you content design, copywriting, scheduling, and monthly analytics.",
     overview:

@@ -8,7 +8,7 @@ const slides = [
   {
     id: 1,
     image:
-      "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=80",
+      "https://plus.unsplash.com/premium_photo-1726711245904-dbfb58d37634?q=80&w=1133&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     tag: "CUSTOM LOGO DESIGN",
     headline: "Logos That Make Your Brand Unforgettable.",
     subtext:
@@ -17,7 +17,7 @@ const slides = [
   {
     id: 2,
     image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     tag: "SOCIAL MEDIA MARKETING",
     headline: "Turn Daily Scrollers Into Loyal Customers.",
     subtext:
@@ -44,7 +44,7 @@ const slides = [
   {
     id: 5,
     image:
-      "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1610966976042-44342b61a03f?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
     tag: "REELS & SHORT-FORM VIDEO",
     headline: "Hook Viewers In The First 2 Seconds.",
     subtext:
